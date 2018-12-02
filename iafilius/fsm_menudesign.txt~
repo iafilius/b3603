@@ -1,0 +1,101 @@
+
+Use finit state mechanism to design menu structure
+
+<state>
+
+
+
+[Powerup]	<poweron>
+	       	    |
+	    	    | [default]
+	    	    v
+	           [Vin]
+
+
+
+
+[Vin]		<disp Vin txt>		--[after a second]--> 	<display Vin Voltage value>
+		    |							|
+		    | [set-key]						| [set-key]
+		    v							v
+		  [Vout]					     [Vout]
+
+
+
+[Vout]		<disp Vout txt>		--[after a second]--> 	<display Vout Voltage value>	--[+/-]-->	[Vout-set]
+		    |							|		|
+		    | [set-key]						| [set-key]	| [ok]	
+		    v							v		v
+		  [Iout]					     [Iout]	   [output enable/disable menu]
+
+
+
+ [Vout-set]	<disp Vout-set>		--[+/-]-->	  	<disp  Vout-set>	--[+/-ok]--> 	[Vout-set-edit]
+			|						|
+			|						|
+			v						v
+		      [Iout]					      [Iout]
+
+
+ [Vout-set-edit] <disp Vout-set-new>	--[+/-]-->	  	<disp new Vout-set>	--[ok]-->(commit)--> 	[Vout-set]
+								      ^ |
+								      | |  [+/-]
+								      |-v
+								
+
+
+
+
+
+					--[ok-->		[output enable/disable menu] (not implemented correctly)
+
+
+
+ [output enable/disable menu]
+		 <disp banner>	--[after a second]-->  	<disp value>	--[+/-]--> [output enable/disable change]	
+
+
+
+  [output enable/disable change]
+		<displ banner>		--[after a second]-->  	 <disp proposed value>	--[ok]-->(commit)-->  [output enable/disable menu]
+								      ^ |
+								      | |  [+/-]
+								      |-v
+												
+
+
+
+
+
+
+
+[Iout]		<disp Iout txt>		--[after a second]--> 	<display Iout current value>	-[+/-]-->   [Iout-set]
+		    |							|		|
+		    | [set-key]						| [set-key]	| [ok]
+		    v							v		v
+		  [vin]						      [Vin]	[output enable/disable menu]
+
+
+
+ [Iout-set]	<disp Iout-set txt>	--[after a second]-->  	<disp Iout-set value>		--[+/-/ok]--> 	[Iout set edit]
+			|						|
+			| [set-key]					| [set-key]
+			v						v
+		      [Vin]					      [Vin]
+
+ [Iout set edit]
+		<disp Iout Set new txt>	--[after a second]-->	<dis Iout new value>	--[ok]-->(commit)-->	[Iout-set]
+								      ^ |
+								      | |  [+/-]
+								      |-v
+								
+
+
+
+
+----
+
+					--[ok-->		[output enable/disable menu] (not implemented correctly)
+
+
+

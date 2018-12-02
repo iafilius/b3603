@@ -157,3 +157,7 @@ void output_check_state(cfg_system_t *sys, uint8_t state_constant_current)
 }
 
 
+void commit_output()
+{
+        output_commit(&cfg_output, &cfg_system, state.constant_current);
+}

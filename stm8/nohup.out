@@ -1,0 +1,30 @@
+DEP fsm.c
+DEP buttons.c
+DEP adc.c
+DEP parse.c
+DEP fixedpoint.c
+DEP config.c
+DEP outputs.c
+DEP eeprom.c
+DEP uart.c
+DEP display.c
+DEP main.c
+CC main.c
+main.c:452: warning 158: overflow in implicit constant conversion
+CC display.c
+CC uart.c
+CC eeprom.c
+eeprom.c:43: warning 158: overflow in implicit constant conversion
+CC outputs.c
+CC config.c
+CC fixedpoint.c
+CC parse.c
+CC adc.c
+CC buttons.c
+CC fsm.c
+LINK b3603.ihx
+Code fits the flash, it is 8113
+CC main.c
+main.c:455: warning 158: overflow in implicit constant conversion
+LINK b3603.ihx
+Code fits the flash, it is 8178

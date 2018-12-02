@@ -69,9 +69,11 @@ uint16_t parse_millinum(uint8_t *s)
 	return whole_digits + fraction_digits;
 
 invalid_number:
+#ifndef __NOUART__
 	uart_write_str("INVALID NUMBER '");
 	uart_write_str(t);
 	uart_write_ch('\'');
 	uart_write_str("\r\n");
+#endif	
 	return 0xFFFF;
 }

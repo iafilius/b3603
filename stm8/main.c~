@@ -83,11 +83,6 @@ void set_name(uint8_t *name)
 #endif
 }
 
-void commit_output()
-{
-        output_commit(&cfg_output, &cfg_system, state.constant_current);
-}
-
 void autocommit(void)
 {
 	if (cfg_system.autocommit) {
@@ -99,6 +94,10 @@ void autocommit(void)
 	}
 }
 
+void commit_output()
+{
+        output_commit(&cfg_output, &cfg_system, state.constant_current);
+}
 
 
 void set_output(uint8_t *s)

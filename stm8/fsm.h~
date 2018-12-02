@@ -61,11 +61,6 @@
 #define CALIBRATE_F6_HIGH_ACTION		25
 
 
-#define CALIBRATE_VIN_a_TXT			26		// SET is equals SHOW, so 2 layer menu only
-#define CALIBRATE_VIN_a_ACTION                  27		// SET is equals SHOW, so 2 layer menu only
-#define CALIBRATE_VIN_a_NEW_TXT			28
-#define CALIBRATE_VIN_a_NEW_ACTION             29
-
 
 
 #define	MAXBLINKDELAY 1500

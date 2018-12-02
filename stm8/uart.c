@@ -16,6 +16,8 @@
  *  along with B3603 alternative firmware.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <stdarg.h>	// dynamic number of variabeles
+
 #include "uart.h"
 #include "fixedpoint.h"
 #include "stm8s.h"
@@ -73,6 +75,23 @@ void uart_write_str(const char *str)
 		uart_write_len++;
 	}
 }
+
+void uart_write_str_m(char* str, ...)
+{
+va_list list;
+int j=0;
+char *s;
+
+va_start(list, str);
+
+	while (s=va_arg(list, char *)) {
+		uart_write_str(s);	// j, int const char * ????
+	}
+	
+va_end(list);
+//return count;
+}
+
 
 uint8_t digits_buf[12];
 static uint8_t int_to_digits(uint16_t val)

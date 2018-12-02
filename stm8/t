@@ -1,0 +1,7 @@
+// repeated integer calculations to char 
+#define D4	10000
+#define D3	1000
+#define D2	100
+#define D1	10
+
+

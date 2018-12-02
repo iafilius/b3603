@@ -22,12 +22,11 @@ New
 
 Future
 	
-	-Full Menu's for standalone operation
+	-Full Menu's
 	-code/calibration for BST400
 	-dratically reduce uart code size, now uses 5K!!!! (of maximum of 8K)
 		-remove partial string redundancy (dipalcved strings, or near duplicate strings (lowercase/upper case, with : or without)
 		-reduce partially redundant functions
-	-include uart code by default again.
 
 			
 

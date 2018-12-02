@@ -1,0 +1,23 @@
+
+Use finit state mechanism to bring menu structure
+<state>
+
+
+
+	<poweron>
+	    |
+	    | [default]
+	    v
+Vin	<disp Vin txt>		--[after a second]--> 	<display Vin Voltage value>
+	    |
+	    | [set-key]
+	    v
+Vout	<disp Vout txt>		--[after a second]--> 	<display Vout Voltage value>
+	    |							|
+	    | [set-key]						
+	    v
+Iout	<disp Iout txt>		--[after a second]--> 	<display Iout current value>
+	    |
+	    |
+	    v
+	  [vin]

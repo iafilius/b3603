@@ -105,11 +105,7 @@ if(button_previous==0) {
             if (button_timer_repeatcount < 10) {
                 button_timer=1500;	// when repeating mode
             } else {
-                if(button_timer_repeatcount < 100) {
-                    button_timer=500;	// when reached button_timer_repeatcount ... faster
-                } else {
-                    button_timer=100;	// ultrafast for the impacient
-                }
+                button_timer=500;	// when reached button_timer_repeatcount ... faster
             }
             
             button_previous=button;
