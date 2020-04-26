@@ -3,7 +3,7 @@ SRC=main.c display.c eeprom.c outputs.c config.c fixedpoint.c parse.c adc.c butt
 CFLAGS= -lstm8 -mstm8 --opt-code-size --std-c99 --fverbose-asm -D__NOUART__
 OBJ=$(SRC:.c=.rel)
 DEP=$(SRC:%.c=.%.c.d)
-SDCC=/home/arjan/hardwareinfo/b3603/sdcc/bin/sdcc $(CFLAGS)
+SDCC=sdcc $(CFLAGS)
 TESTUTILS=test_pwm_accuracy test_adc_accuracy test_parse
 
 all: b3603.ihx check_size
@@ -20,6 +20,10 @@ check_size: b3603.ihx
 
 deploy: b3603.ihx
 	stm8flash -c stlinkv2 -p stm8s003f3 -w $<
+
+unprotect:	
+	stm8flash -c stlinkv2 -p stm8s103f3 -s opt -w ROP_CLEAR.bin
+	stm8flash -c stlinkv2 -p stm8s103f3 -s opt -w factory_defaults.bin
 
 b3603.ihx: $(OBJ)
 	@echo LINK $@
